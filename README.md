@@ -14,3 +14,5 @@ the yield passes each element of the inherited array (self) to the block
 and the block does something.
 
 finally, the method implicitly returns the last line (self)
+
+returning and putting value
