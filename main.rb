@@ -6,7 +6,6 @@ module Enumerable
     end
 
     # original array
-    #print self
     self
   end
 
@@ -16,7 +15,6 @@ module Enumerable
     end
 
     # original array
-    #print self
     self
   end
 
@@ -27,7 +25,6 @@ module Enumerable
     end
 
     # new array
-    puts a
     a
   end
 
@@ -39,7 +36,6 @@ module Enumerable
     all = a.length == self.length
 
     # boolean
-    puts all
     all
   end
 
@@ -51,7 +47,6 @@ module Enumerable
     any = a.length >= 1
 
     # boolean
-    puts any
     any
   end
 
@@ -63,7 +58,6 @@ module Enumerable
     none = a.length == 0
 
     # boolean
-    puts none
     none
   end
 
@@ -75,7 +69,6 @@ module Enumerable
     count = a.length
 
     # counts number that matches critera in block
-    puts count
     count
   end
 
@@ -86,7 +79,6 @@ module Enumerable
     end
 
     # returns updated array
-    puts a
     a
   end
 
@@ -96,11 +88,9 @@ module Enumerable
       next if i==0
       result = yield(prev, val)
       prev = result
-
     end
 
     #final result
-    puts prev
     prev
   end
 
@@ -117,67 +107,38 @@ module Enumerable
 # Tests
 
 # 1
-# [3,4,5].my_each do |x|
-#   puts x
-# end
+# puts [3,4,5].my_each {|x| x }
 
 # 2
-# [2,4,6].my_each_with_index do |index, value|
-#   puts index
-#   puts value
-# end
+# puts [2,4,6].my_each_with_index { |index, value| }
 
 # 3
-# [3,6,9].my_select do |x|
-# x > 6
-# end
+# puts [3,6,9].my_select { |x| x > 4 }
 
 # 4
-# [3,6,9].my_all? do |x|
-# x > 2
-# end
+# puts [3,6,9].my_all? { |x| x > 2 }
 
 # 5
-# [3,6,9].my_any? do |x|
-# x > 8
-# end
+# puts [3,6,9].my_any? { |x| x > 5}
 
 # 6
-# [3,6,9].my_none? do |x|
-# x > 10
-# end
+# puts [3,6,9].my_none? {|x| x > 10}
 
 # 7
-# [3,6,9].my_count do |x|
-# x > 2
-# end
+# puts [3,6,9].my_count {|x| x > 4}
 
 #8
-# [3,6,9].my_map do |x|
-# x*2
-# end
+# puts [3,6,9].my_map {|x| x*2 }
 
 # 9
-# [3,14,12,4].my_inject do |prev, curr|
-# prev + curr
-# end
+# puts [3,14,12,4].my_inject {|prev, curr| prev + curr}
 
 # 10
-# multiply_els([2,4,5])
+# puts multiply_els([2,4,5])
 
 # 11
 # my_proc = Proc.new do |x|
 # x*6
 # end
 #
-# [3,6,9].my_map(&my_proc)
-
-
-# 12
-# my_proc = Proc.new do |x|
-# x*6
-# end
-#
-# [3,6,9].my_map(&my_proc) do |x|
-# x*2
-# end
+# puts [3,6,9].my_map(&my_proc)
