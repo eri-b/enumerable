@@ -27,7 +27,7 @@ module Enumerable
     end
 
     # new array
-    #puts a
+    puts a
     a
   end
 
@@ -113,6 +113,9 @@ module Enumerable
    end
  end
 
+
+# Tests
+
 # 1
 # [3,4,5].my_each do |x|
 #   puts x
@@ -171,10 +174,10 @@ module Enumerable
 
 
 # 12
-my_proc = Proc.new do |x|
-x*6
-end
-
-[3,6,9].my_map(&my_proc) do |x|
-x*2
-end
+# my_proc = Proc.new do |x|
+# x*6
+# end
+#
+# [3,6,9].my_map(&my_proc) do |x|
+# x*2
+# end
