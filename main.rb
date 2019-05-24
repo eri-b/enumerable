@@ -91,59 +91,90 @@ module Enumerable
   end
 
   def my_inject
-    # a = []
-    # self.my_each do |val|
-    #   a.push(yield(val))
-    # end
-    #
-    # # returns last iteration
-    # puts a
-    # a
-  end
+    prev = self[0]
+    self.my_each_with_index do |i, val|
+      next if i==0
+      result = yield(prev, val)
+      prev = result
 
+    end
+
+    #final result
+    puts prev
+    prev
+  end
 
  end
 
+# cannot be in enumerables module
+ def multiply_els (arr)
+   arr.my_inject do |prev,curr|
+     prev * curr
+   end
+ end
 
+# 1
 # [3,4,5].my_each do |x|
 #   puts x
 # end
-#
+
+# 2
 # [2,4,6].my_each_with_index do |index, value|
 #   puts index
 #   puts value
 # end
-#
+
+# 3
 # [3,6,9].my_select do |x|
 # x > 6
 # end
-#
+
+# 4
 # [3,6,9].my_all? do |x|
 # x > 2
 # end
-#
+
+# 5
 # [3,6,9].my_any? do |x|
 # x > 8
 # end
-#
+
+# 6
 # [3,6,9].my_none? do |x|
 # x > 10
 # end
 
+# 7
 # [3,6,9].my_count do |x|
 # x > 2
 # end
-#
+
+#8
 # [3,6,9].my_map do |x|
 # x*2
 # end
 
-[3,6,9].my_inject do |prev, curr|
+# 9
+# [3,14,12,4].my_inject do |prev, curr|
+# prev + curr
+# end
 
+# 10
+# multiply_els([2,4,5])
+
+# 11
+# my_proc = Proc.new do |x|
+# x*6
+# end
+#
+# [3,6,9].my_map(&my_proc)
+
+
+# 12
+my_proc = Proc.new do |x|
+x*6
 end
 
-
-=begin
-Questions:
-1. Needs to be in array class?
-=end
+[3,6,9].my_map(&my_proc) do |x|
+x*2
+end

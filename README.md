@@ -3,7 +3,7 @@
 Ruby!
 
 
-###my_each
+### my_each
 my_each is a method
 (it is in the array class so you can call directly on array)
 
