@@ -64,7 +64,11 @@ module Enumerable
   def my_count
     a = []
     self.my_each do |val|
-      a.push(val) if yield(val)
+      if block_given?
+        a.push(val) if yield(val)
+      else
+        a.push(val)
+      end
     end
     count = a.length
 
@@ -125,7 +129,8 @@ module Enumerable
 # puts [3,6,9].my_none? {|x| x > 10}
 
 # 7
-# puts [3,6,9].my_count {|x| x > 4}
+puts [3,6,9].my_count {|x| x > 4}
+puts [3,6,9].my_count
 
 #8
 # puts [3,6,9].my_map {|x| x*2 }
